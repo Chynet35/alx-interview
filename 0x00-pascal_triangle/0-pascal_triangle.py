@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""A script to determine pascal's triangle for any number"""
+
+
 def pascal_triangle(n):
     if n <= 0:
         return []  # Return an empty list if n is less than or equal to 0
