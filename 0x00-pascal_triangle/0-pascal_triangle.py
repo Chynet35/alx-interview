@@ -3,11 +3,12 @@
 
 
 def pascal_triangle(n):
-    if n <= 0:
-        return []  # Return an empty list if n is less than or equal to 0
 
     triangle = []  # Initialize an empty list to store the triangle
-
+  
+    if n <= 0:
+        return triangle  # Return an empty list if n is less than or equal to 0
+  
     for i in range(n):
         row = [1]  # Each row starts with 1
 
