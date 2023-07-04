@@ -1,20 +1,28 @@
 #!/usr/bin/python3
+''' lockbox module '''
 
-from collections import deque
 
 def canUnlockAll(boxes):
-    n = len(boxes)
-    visited = set()
-    visited.add(0)  # Mark the first box as visited
-    queue = deque([0])  # Initialize the queue with the first box
+    ''' 
+        CanUnockAll
+        ([boxes]): a list of list
+    '''
 
-    while queue:
-        box = queue.popleft()
-        keys = boxes[box]
-
-        for key in keys:
-            if key not in visited and key < n:
-                visited.add(key)
-                queue.append(key)
-
-    return len(visited) == n
+    # initialize a list of unlocked boxes
+    unlocked = [False] * len(boxes)
+    # set the first box oprn
+    unlocked[0] = True
+    # iterate over the boxes
+    for index, box in enumerate(boxes):
+        # check if the box is unlocked
+        if unlocked[index]:
+            # get the keys in the box
+            for index, key in enumerate(box):
+                # set the box with a found key to open
+                if key < len(unlocked):
+                    unlocked[key] = True
+                    # get the keys at the box that has been opened
+                    # set the boxes with the keys to be open
+                    for i in boxes[key]:
+                        unlocked[i] = True
+    return all(unlocked)
