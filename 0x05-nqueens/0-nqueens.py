@@ -56,6 +56,4 @@ def n_queens():
             clean.append([q, x])
         print(clean)
 
-
-if __name__ == '__main__':
-    n_queens()
+__name__ == '__main__':
